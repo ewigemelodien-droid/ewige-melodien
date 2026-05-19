@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ewige Melodien - Christliche Musik Streaming</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="/images/logo.png" alt="Ewige Melodien" class="logo">
+            <span>Ewige Melodien</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#" class="active" data-page="home"><i class="fas fa-home"></i> Startseite</a></li>
+            <li><a href="#" data-page="music"><i class="fas fa-music"></i> Musik</a></li>
+            <li><a href="#" data-page="videos"><i class="fas fa-video"></i> Videos</a></li>
+            <li><a href="#" data-page="shop"><i class="fas fa-shopping-bag"></i> Shop</a></li>
+            <li><a href="#" data-page="contact"><i class="fas fa-envelope"></i> Kontakt</a></li>
+            <li><a href="#" data-page="donate"><i class="fas fa-heart"></i> Spenden</a></li>
+        </ul>
+        <div class="nav-auth">
+            <button id="loginBtn" class="btn-outline">Anmelden</button>
+            <button id="registerBtn" class="btn-primary">Registrieren</button>
+            <div id="userMenu" class="hidden">
+                <span id="userName"></span>
+                <button id="logoutBtn" class="control-btn"><i class="fas fa-sign-out-alt"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Erlebe die <span class="gradient-text">Ewige Melodien</span></h1>
+                    <p>Christliche Musik, die das Herz berührt und die Seele erhebt. Streamen Sie kostenlos oder unterstützen Sie uns durch Käufe.</p>
+                    <button class="btn-large" onclick="navigateTo('music')">
+                        <i class="fas fa-play"></i> Jetzt Entdecken
+                    </button>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-cards">
+                        <div class="float-card"></div>
+                        <div class="float-card"></div>
+                        <div class="float-card"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h2>Beliebte Musik</h2>
+                <a href="#" onclick="navigateTo('music')" class="see-all">Alle anzeigen <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="music-grid" id="featuredMusic"></div>
+        </section>
+
+        <!-- Music Page -->
+        <section id="music" class="page">
+            <div class="page-header">
+                <h1><i class="fas fa-music"></i> Musik Bibliothek</h1>
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">Alle</button>
+                    <button class="filter-btn" data-filter="worship">Worship</button>
+                    <button class="filter-btn" data-filter="hymn">Hymnen</button>
+                    <button class="filter-btn" data-filter="free">Kostenlos</button>
+                </div>
+            </div>
+            <div class="music-grid" id="allMusic"></div>
+        </section>
+
+        <!-- Videos Page -->
+        <section id="videos" class="page">
+            <div class="page-header">
+                <h1><i class="fas fa-video"></i> Videos</h1>
+            </div>
+            <div class="coming-soon">
+                <i class="fas fa-film fa-3x"></i>
+                <h2>Demnächst verfügbar</h2>
+                <p>Unsere Video-Sammlung wird bald veröffentlicht.</p>
+            </div>
+        </section>
+
+        <!-- Shop Page -->
+        <section id="shop" class="page">
+            <div class="page-header">
+                <h1><i class="fas fa-shopping-bag"></i> Musik Shop</h1>
+                <p>Kaufen und Downloaden Sie Ihre Lieblingstracks</p>
+            </div>
+            <div class="music-grid" id="shopMusic"></div>
+        </section>
+
+        <!-- Contact Page -->
+        <section id="contact" class="page">
+            <div class="page-header">
+                <h1><i class="fas fa-envelope"></i> Kontakt</h1>
+            </div>
+            <div class="contact-container">
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Nachricht gesendet!');">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" placeholder="Ihr Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>E-Mail</label>
+                        <input type="email" placeholder="ihre@email.de" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nachricht</label>
+                        <textarea rows="5" placeholder="Ihre Nachricht..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary btn-large">Nachricht senden</button>
+                </form>
+                <div class="contact-info">
+                    <h3>Ewige Melodien</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Deutschland</p>
+                    <p><i class="fas fa-envelope"></i> info@ewigemelodien.de</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Donate Page -->
+        <section id="donate" class="page">
+            <div class="page-header">
+                <h1><i class="fas fa-heart"></i> Unterstützen Sie uns</h1>
+                <p>Helfen Sie uns, Christliche Musik weiterhin kostenlos anzubieten</p>
+            </div>
+            <div class="donate-container">
+                <div class="donate-card">
+                    <i class="fas fa-hand-holding-heart fa-3x"></i>
+                    <h3>Einmalige Spende</h3>
+                    <div class="amount-buttons">
+                        <button class="amount-btn" onclick="selectAmount(this)">5 €</button>
+                        <button class="amount-btn" onclick="selectAmount(this)">10 €</button>
+                        <button class="amount-btn" onclick="selectAmount(this)">25 €</button>
+                        <button class="amount-btn" onclick="selectAmount(this)">50 €</button>
+                    </div>
+                    <button class="btn-primary btn-large" onclick="alert('Spende-Funktion kommt bald!')">Jetzt Spenden</button>
+                </div>
+                <div class="donate-card">
+                    <i class="fas fa-infinity fa-3x"></i>
+                    <h3>Monatliche Unterstützung</h3>
+                    <p>Werden Sie ein Patron und ermöglichen Sie neue Produktionen.</p>
+                    <button class="btn-outline btn-large" onclick="alert('Patron-Funktion kommt bald!')">Patron werden</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Player Bar -->
+    <div class="player-bar" id="playerBar">
+        <div class="player-info">
+            <img src="/images/default-cover.jpg" alt="Cover" class="player-cover" id="playerCover">
+            <div class="player-meta">
+                <div class="player-title" id="playerTitle">Wählen Sie einen Track</div>
+                <div class="player-artist" id="playerArtist">-</div>
+            </div>
+        </div>
+        <div class="player-controls">
+            <button class="control-btn" id="prevBtn"><i class="fas fa-step-backward"></i></button>
+            <button class="control-btn play-btn" id="playBtn"><i class="fas fa-play"></i></button>
+            <button class="control-btn" id="nextBtn"><i class="fas fa-step-forward"></i></button>
+        </div>
+        <div class="player-progress">
+            <span id="currentTime">0:00</span>
+            <div class="progress-bar" id="progressBar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span id="duration">0:00</span>
+        </div>
+        <div class="player-extra">
+            <button class="control-btn" id="playlistBtn" onclick="togglePlaylistModal()"><i class="fas fa-list"></i></button>
+            <button class="control-btn" id="volumeBtn"><i class="fas fa-volume-up"></i></button>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="switchAuth('login')">Anmelden</button>
+                <button class="auth-tab" onclick="switchAuth('register')">Registrieren</button>
+            </div>
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label>E-Mail</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>Passwort</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn-primary btn-large">Anmelden</button>
+            </form>
+            <form id="registerForm" class="auth-form hidden">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" id="regName" required>
+                </div>
+                <div class="form-group">
+                    <label>E-Mail</label>
+                    <input type="email" id="regEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>Passwort</label>
+                    <input type="password" id="regPassword" required>
+                </div>
+                <button type="submit" class="btn-primary btn-large">Registrieren</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content payment-modal">
+            <button class="close-modal" onclick="closePaymentModal()"><i class="fas fa-times"></i></button>
+            <h2>Track kaufen</h2>
+            <div class="payment-track-info" id="paymentTrackInfo"></div>
+            <div class="payment-methods">
+                <button class="payment-btn" onclick="payWithStripe()">
+                    <i class="fab fa-cc-stripe"></i> Mit Stripe bezahlen
+                </button>
+                <button class="payment-btn" onclick="payWithPayPal()">
+                    <i class="fab fa-cc-paypal"></i> Mit PayPal bezahlen
+                </button>
+            </div>
+            <div id="stripeCardElement" class="hidden" style="margin-top: 20px;">
+                <div class="form-group">
+                    <label>Kreditkarte</label>
+                    <div id="card-element" style="padding: 12px; background: var(--bg-secondary); border-radius: 12px; border: 2px solid var(--border);"></div>
+                    <div id="card-errors" style="color: var(--danger); margin-top: 8px; font-size: 0.9rem;"></div>
+                </div>
+                <button class="btn-primary btn-large" onclick="confirmStripePayment()" style="width: 100%;">Zahlung bestätigen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Playlist Modal -->
+    <div class="modal" id="playlistModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closePlaylistModal()"><i class="fas fa-times"></i></button>
+            <h2>Meine Playlists</h2>
+            <div id="playlistList" style="margin: 20px 0;"></div>
+            <div class="form-group">
+                <label>Neue Playlist</label>
+                <input type="text" id="newPlaylistName" placeholder="Playlist Name">
+            </div>
+            <button class="btn-primary" onclick="createPlaylist()" style="width: 100%;">Erstellen</button>
+        </div>
+    </div>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=EUR"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
