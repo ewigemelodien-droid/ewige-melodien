@@ -96,3 +96,50 @@ MIT License
 
 ## Kontakt
 info@ewigemelodien.de
+
+
+## 👨‍💼 Admin Panel
+
+### Accessing Admin Panel
+1. Go to `https://your-site.com/admin`
+2. Login with your user credentials
+3. If you see "Admin Zugriff erforderlich", you need to make yourself admin first
+
+### Making Yourself Admin
+
+**Option 1: Before first deploy (recommended)**
+Register a user on the website first, then run:
+```bash
+node setup-admin.js your-email@example.com
+```
+
+**Option 2: Direct database edit**
+If you have access to the server:
+```bash
+sqlite3 database.sqlite
+UPDATE users SET is_admin = 1 WHERE email = 'your-email@example.com';
+.quit
+```
+
+**Option 3: Via environment variable (emergency)**
+Set `ADMIN_EMAIL=your-email@example.com` in `.env` and restart.
+
+### Admin Features
+- 📊 **Dashboard**: View stats (users, music, sales, revenue)
+- 🎵 **Music Management**: Add, edit, delete tracks with file upload
+- 👥 **User Management**: View users, promote to admin, delete
+- 🛒 **Sales Tracking**: View all purchases and revenue
+- ⚙️ **Settings**: Update site information
+
+### Adding Music
+1. Go to Admin Panel → Musik Verwalten
+2. Click "Neue Musik"
+3. Fill in details (title, artist, price, etc.)
+4. Upload cover image (optional)
+5. Upload MP3 file (optional)
+6. Save
+
+### File Upload Limits
+- Max file size depends on your hosting
+- On Render Free: ~100MB per file
+- For larger files, use cloud storage (AWS S3, Cloudinary)

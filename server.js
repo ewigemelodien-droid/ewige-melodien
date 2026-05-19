@@ -19,6 +19,7 @@ app.use('/api/music', require('./routes/music'));
 app.use('/api/playlist', require('./routes/playlist'));
 app.use('/api/shop', require('./routes/shop'));
 app.use('/api/payment', require('./routes/payment'));
+app.use('/api/admin', require('./routes/admin'));
 
 // Serve SPA for all non-API routes
 app.get('*', (req, res) => {
@@ -28,4 +29,5 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`🎵 Ewige Melodien läuft auf Port ${PORT}`);
   console.log(`🌐 http://localhost:${PORT}`);
+  console.log(`👨‍💼 Admin Panel: http://localhost:${PORT}/admin`);
 });
